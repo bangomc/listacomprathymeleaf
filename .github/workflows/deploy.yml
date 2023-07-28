@@ -27,10 +27,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Output contents
+        run: ls
       - name: Get build artifacts
         uses: actions/download-artifact@v3
         with:
           name: pacote
-          path: target
+          path: ./target
       - name: Output contents
         run: ls
