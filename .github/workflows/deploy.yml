@@ -29,6 +29,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: pacote
-          path: ./dist
+          path: target
       - name: Output contents
         run: ls
