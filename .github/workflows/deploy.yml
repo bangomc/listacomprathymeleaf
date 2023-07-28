@@ -37,3 +37,13 @@ jobs:
           path: ./target
       - name: Output contents
         run: ls
+      - name: Output contents
+        run: ls target
+      - name: Copy artifacts to EC2 instance
+        uses: appleboy/scp-action@v0.1.4
+        with:
+            host: ${{ secrets.HOST }}
+            username: ${{ secrets.USERNAME }}
+            key: ${{ secrets.KEY }}
+            source: "target/listacomprathymeleaf-0.0.1-SNAPSHOT.jar"
+            target: "/home/ec2-user/listacomprathymeleaf.jar"
