@@ -25,6 +25,7 @@ jobs:
       - name: Output contents
         run: ls
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Output contents
