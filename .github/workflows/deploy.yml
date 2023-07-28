@@ -28,5 +28,5 @@ jobs:
             host: ${{ secrets.HOST }}
             username: ${{ secrets.USERNAME }}
             key: ${{ secrets.KEY }}
-            source: "target/listacomprathymeleaf-0.0.1-SNAPSHOT.jar"
-            target: "/home/ec2-user/listacomprathymeleaf.jar"
+            source: target/listacomprathymeleaf-0.0.1-SNAPSHOT.jar
+            target: /home/ec2-user
