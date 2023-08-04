@@ -39,11 +39,11 @@ jobs:
         run: ls
       - name: Output contents
         run: ls target
-      - name: Copy artifacts to EC2 instance
-        uses: appleboy/scp-action@v0.1.4
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-            host: ${{ secrets.HOST }}
-            username: ${{ secrets.USERNAME }}
-            key: ${{ secrets.KEY }}
-            source: "target/listacomprathymeleaf-0.0.1-SNAPSHOT.jar"
-            target: "/home/ec2-user/listacomprathymeleaf.jar"
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: List Buckets
+        run: aws s3 ls
