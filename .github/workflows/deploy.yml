@@ -21,7 +21,10 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: pacote
-          path: target/listacomprathymeleaf-0.0.1-SNAPSHOT.jar
+          path: |
+            target/listacomprathymeleaf-0.0.1-SNAPSHOT.jar
+            appspec.yml
+            aws/**
       - name: Output contents
         run: ls
   deploy:
@@ -34,7 +37,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: pacote
-          path: ./target
+          path: .
       - name: Output contents
         run: ls
       - name: Output contents
@@ -48,4 +51,4 @@ jobs:
       - name: List Buckets
         run: aws s3 ls
       - name: Copy file
-        run: aws s3 cp target/listacomprathymeleaf-0.0.1-SNAPSHOT.jar s3://listacomprathymeleaf/
+        run: aws s3 cp pacote s3://listacomprathymeleaf/
