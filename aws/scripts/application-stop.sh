@@ -1,5 +1,7 @@
 #!/bin/bash
-#set -x
+set -x
+
+ls
 
 # System control will return either "active" or "inactive".
 #tomcat_running=$(systemctl is-active tomcat)
