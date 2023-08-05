@@ -47,3 +47,5 @@ jobs:
           aws-region: us-east-1
       - name: List Buckets
         run: aws s3 ls
+      - name: Copy file
+        run: aws s3 cp target/listacomprathymeleaf-0.0.1-SNAPSHOT.jar s3://listacomprathymeleaf/
