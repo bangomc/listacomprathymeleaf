@@ -1,5 +1,6 @@
 #!/bin/bash
-#set -xe
+set -xe
 
 # Start Tomcat, the application server.
 #service tomcat start
+java -jar /usr/local/app/app.jar
