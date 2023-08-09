@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: target/listacomprathymeleaf-0.0.1-SNAPSHOT.jar
-    destination: /usr/local/app/app.jar
+    destination: /usr/local/app
 hooks:
   ApplicationStop:
     - location: aws/scripts/application-stop.sh
