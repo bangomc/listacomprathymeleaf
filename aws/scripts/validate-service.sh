@@ -18,3 +18,16 @@ SLEEP_TIME=3
 # done
 # echo "Server did not come up after expected time. Failing."
 # exit 1
+
+for i in `seq 1 $NUMBER_OF_ATTEMPTS`;
+do
+  HTTP_CODE=`curl --insecure --write-out '%{http_code}' -o /dev/null -m 10 -q -s http://localhost:8080/health`
+  if [ "$HTTP_CODE" == "404" ]; then
+    echo "aplicativo rodando."
+    exit 0
+  fi
+  echo "aplicativo retornou $HTTP_CODE. tentando novamente."
+  sleep $SLEEP_TIME
+done
+echo "aplicativo nao iniciou. encerrando verificacao."
+exit 1
