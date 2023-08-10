@@ -55,5 +55,7 @@ jobs:
           aws-region: us-east-1
       - name: List Buckets
         run: aws s3 ls
-      - name: Copy file
+      - name: Copy file to bucket
         run: aws s3 cp pacote.zip s3://listacomprathymeleaf/
+      - name: Start codedeploy
+        run: aws deploy create-deployment --application-name listacomprathymeleaf --deployment-group-name Ec2AppServer --s3-location bucket=listacomprathymeleaf,key=pacote.zip,bundleType=zip
